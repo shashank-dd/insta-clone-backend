@@ -93,6 +93,33 @@ route.use(bodyParser.json())
 // route.get("/post", (req, res) => {
 //     res.json("oooo")
 // })
+route.delete("/delete", async (req, res) => {
+    try { 
+  
+     
+        const k = await post.deleteOne({_id:`${req.query._id}`})
+console.log(k)
+        res.status(200).json({
+            k:"deleted"
+        })
+        
+        // l.map(element => {
+        //     arr.push({
+        //         image: '1671117119175Screenshot (15).png',
+        //         auther: 'pp',
+        //         location: 'aqqqq',
+        //         description: 'gougu',
+        //     })
+        // });
+    //     res.status(200).json(
+    //         "deleted"
+    //    )
+    } catch (e) {
+        res.json("err bro")
+        console.log(e.message)
+    }
+
+});
 route.get("/post", async (req, res) => {
     try {
      console.log("coming ")
