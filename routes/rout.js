@@ -100,7 +100,8 @@ route.delete("/delete", async (req, res) => {
         const k = await post.deleteOne({_id:`${req.query._id}`})
 console.log(k)
         res.status(200).json({
-            k:"deleted"
+            k:"deleted",
+            m:k
         })
         
         // l.map(element => {
@@ -140,6 +141,7 @@ console.log(k)
         //     })
         // });
         res.json({
+            g:"ok",
             p:k.reverse()
         })
     } catch (e) {
@@ -170,7 +172,7 @@ route.post("/add/user", async (req, res) => {
         })
     
         res.status(200).json({
-            ms: "created sucesfully",
+            ms: "ok",
            p: p
 
         });
